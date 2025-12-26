@@ -28,8 +28,36 @@
       "package.json"
     ],
     "extraResources": [
-      { "from": "backend/", "to": "backend/", "filter": ["**/*"] }
+      {
+        "from": "backend/",
+        "to": "backend/",
+        "filter": ["**/*"]
+      }
     ],
-    "directories": { "output": "dist", "buildResources": "build" }
+    "directories": {
+      "output": "dist",
+      "buildResources": "build"
+    },
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": ["ia32", "x64"]
+        }
+      ],
+      "publisherName": "YOUR_COMPANY_OR_NAME"
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": false,
+      "allowElevation": true,
+      "allowToChangeInstallationDirectory": true
+    },
+    "publish": [
+      {
+        "provider": "generic",
+        "url": "https://your-cdn-or-hosting/path/"
+      }
+    ]
   }
 }
